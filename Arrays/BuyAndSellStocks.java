@@ -12,7 +12,7 @@ public class BuyAndSellStocks{
         return profit;
     }
     public static void main(String[] args) {
-        int[] prices = {7,1,5,3,6,4};
+        int[] prices = {7,6,4,3,1};
         int profit = buyAndSell(prices);
         System.out.println(profit);
     }
