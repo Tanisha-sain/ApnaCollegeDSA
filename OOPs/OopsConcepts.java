@@ -1,6 +1,6 @@
 package OOPs;
 
-public class ClassAndObject {
+public class OopsConcepts {
     public static void main(String[] args) {
         Pen p1 = new Pen();
         p1.setColor("Blue");
@@ -46,10 +46,10 @@ class Pen{
 }
 
 class Student{
-    String name;
-    int age;
-    float percentage;
-    
+    String name; 
+    int age;  
+    float percentage; 
+
     void calculatePercentage(int phy, int chem, int math){
         percentage = (phy + chem + math)/3.0f;
     }
