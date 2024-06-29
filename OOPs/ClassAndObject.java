@@ -4,11 +4,15 @@ public class ClassAndObject {
     public static void main(String[] args) {
         Pen p1 = new Pen();
         p1.setColor("Blue");
-        System.out.println(p1.color);
+        //System.out.println(p1.color);
         p1.setTip(5);
-        System.out.println(p1.tip);
-        p1.tip = 2;
-        System.out.println(p1.tip);
+        // System.out.println(p1.tip);
+        // p1.tip = 2;
+        // System.out.println(p1.tip);
+        System.out.println(p1.getTip());
+        System.out.println(p1.getColor());
+        p1.setTip(2);
+        System.out.println(p1.getTip());
 
         Student s1 = new Student();
         s1.name = "Abhay";
@@ -20,14 +24,24 @@ public class ClassAndObject {
 }
 
 class Pen{
-    String color;
-    int tip;
+    // These attributes are private. So, they can be accessed only within Pen class.
+    private String color; 
+    private int tip;
 
-    void setColor(String newColor){
-        color = newColor;
+    // Setters
+    void setColor(String color){
+        this.color = color; // this keyword used to refer to the current object.
     }
-    void setTip(int newTip){
-        tip = newTip;
+    void setTip(int tip){
+        this.tip = tip;
+    }
+
+    // Getters
+    String getColor(){
+        return this.color;
+    }
+    int getTip(){
+        return this.tip;
     }
 }
 
