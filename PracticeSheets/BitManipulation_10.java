@@ -1,6 +1,6 @@
 package PracticeSheets;
 
-public class BitManipulation {
+public class BitManipulation_10 {
     public static void oddOrEven(int n){
         int bitmask = 1;
         if((n&bitmask) == 1){
@@ -76,6 +76,28 @@ public class BitManipulation {
 
     }
 
+    public static void swap(int a, int b){
+        System.out.println("Before swapping: a = " + a + ", b = " + b);
+        // a = a+b;
+        // b = a-b;
+        // a = a-b;
+        a = a^b;
+        b = a^b;
+        a = a^b;
+        System.out.println("After swapping: a = " + a + ", b = " + b);
+    }
+
+    public static int addOne(int n){
+        return -~n;
+    }
+
+    public static char upperToLower(char upp){
+        int asc = (int)upp;
+        int bitmask = 1<<5;
+        int ans = asc | bitmask;
+        return (char)ans;
+    }
+
     public static void main(String[] args) {
         // oddOrEven(6);
         // oddOrEven(7);
@@ -89,5 +111,9 @@ public class BitManipulation {
         // System.out.println(toBinary(90));
         // System.out.println(countSetBits(10));
         System.out.println(fastExponentiation(5, 3));
+        swap(4, 5);
+        System.out.println(addOne(6));
+        System.out.println(upperToLower('A'));
+        // System.out.println((int)' ');
     }
 }
