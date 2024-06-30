@@ -21,6 +21,7 @@ public class Constuctors {
         System.out.println(s3.name);
         System.out.println(s3.password);
         System.out.println(Arrays.toString(s3.marks));
+        System.out.println(Arrays.toString(s1.marks));
 
     }
 }
@@ -43,12 +44,22 @@ class Student1{
         this.age = age;
     }
 
-    // copy constuctor
+    // shallow copy constuctor
+    // Student1(Student1 s){
+    //     marks = new int[3];   
+    //     this.name = s.name;
+    //     this.age = s.age;
+    //     this.marks = s.marks;
+    // }
+
+    // deep copy constructor
     Student1(Student1 s){
-        marks = new int[3];
+        marks = new int[3];   
         this.name = s.name;
         this.age = s.age;
-        this.marks = s.marks;
+        for(int i = 0; i<3; i++){
+            this.marks[i] = s.marks[i];
+        }
     }
     
 }
