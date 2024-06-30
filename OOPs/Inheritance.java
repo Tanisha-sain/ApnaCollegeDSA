@@ -11,12 +11,18 @@ public class Inheritance {
         // dobby.legs = 4;
         // System.out.println(dobby.legs);
 
-        Bird bird = new Bird();
-        bird.fly();
-        bird.eat();
-        Fish fist = new Fish();
-        fist.swim();
-        fist.breathe();
+        // Bird bird = new Bird();
+        // bird.fly();
+        // bird.eat();
+        // Fish fist = new Fish();
+        // fist.swim();
+        // fist.breathe();
+
+        Human human = new Human();
+        human.think();
+        human.eat();
+        human.walk();
+        
 
     }
 }
@@ -49,6 +55,40 @@ class Bird extends Animal{
         System.out.println("flies");
     }
 }
+
+
+// Hybrid Inheritance (Combination of other types of inheritance)
+class Tuna extends Fish{
+    void color(){
+        System.out.println("silvery");
+    }
+}
+class Shark extends Fish{
+    void danger(){
+        System.out.println("dangerous");
+    }
+}
+class Peacock extends Bird{
+    void dance(){
+        System.out.println("dances in the rain");
+    }
+}
+class Dog extends Mammals{
+    void bark(){
+        System.out.println("barks");
+    }
+}
+class Cat extends Mammals{
+    void meow(){
+        System.out.println("meow");
+    }
+}
+class Human extends Mammals{
+    void think(){
+        System.out.println("thinks");
+    }
+}
+
 
 
 // Multi level Inheritance (Base class -> subclass1 -> subclass2)
