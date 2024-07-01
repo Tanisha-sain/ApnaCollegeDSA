@@ -27,7 +27,7 @@ public class Complex{
     }
 
     static void product(Complex c1, Complex c2){
-        float r = c1.real*c2.real + c1.imaginary*c2.imaginary;
+        float r = c1.real*c2.real - c1.imaginary*c2.imaginary;
         float i = c1.real*c2.imaginary + c1.imaginary*c2.real;
         System.out.println("prod = " + r + " + " + i + "i");
     }
