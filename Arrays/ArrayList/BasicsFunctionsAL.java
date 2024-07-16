@@ -1,6 +1,6 @@
 package Arrays.ArrayList;
 import java.util.ArrayList;
-public class ReverseAL {
+public class BasicsFunctionsAL {
     public static void main(String[] args) {
         ArrayList<Integer> list = new ArrayList<>();
         list.add(5);
