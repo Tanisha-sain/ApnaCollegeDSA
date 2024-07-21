@@ -1,7 +1,7 @@
 package LinkedList;
 
 public class LinkedList {
-    class Node{
+    public class Node{
         int data;
         Node next;
 
@@ -88,6 +88,28 @@ public class LinkedList {
         }
         System.out.println();
     }
+
+    public int iterSearch(int key){
+        Node temp = head;
+        int i = 0;
+        while(temp != null){
+            if(temp.data == key) return i;
+            temp = temp.next;
+            i++;
+        }
+        return -1;
+    }
+
+    public int rec(int key, Node temp, int i){
+        if(temp == null) return -1;
+        if(temp.data == key) return i;
+        return rec(key,temp.next,i+1);
+    }
+    public int recSearch(int key){
+        return rec(key, head, 0);
+    }
+
+
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
         LinkedList ll2 = new LinkedList();
@@ -101,15 +123,24 @@ public class LinkedList {
         ll.add(4,111);
 
         //System.out.println(ll.tail.data);
+        // ll.printList();
+
+        // System.out.println(ll.removeLast());
+        // System.out.println(ll.removeFirst());
+        // System.out.println(ll.removeFirst());
         ll.printList();
 
-        System.out.println(ll.removeLast());
-        System.out.println(ll.removeFirst());
-        System.out.println(ll.removeFirst());
-        ll.printList();
+        // System.out.println(ll.size);
+        // System.out.println(ll2.size);
 
-        System.out.println(ll.size);
-        System.out.println(ll2.size);
+        System.out.println(ll.iterSearch(9));
+        System.out.println(ll.iterSearch(0));
+
+
+        for(int i = 1; i<6; i++){
+            ll2.addLast(i);
+        }
+        System.out.println(ll2.recSearch(3));
 
     }
 }
