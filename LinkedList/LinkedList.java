@@ -1,7 +1,7 @@
 package LinkedList;
 
 public class LinkedList {
-    public class Node{
+    public static class Node{
         int data;
         Node next;
 
@@ -109,6 +109,17 @@ public class LinkedList {
         return rec(key, head, 0);
     }
 
+    public void reverse(){
+        Node curr = tail = head, prev = null, nxt = null;
+        while(curr != null){
+            nxt = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nxt;
+        }
+        head = prev;
+    }
+
 
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
@@ -141,6 +152,10 @@ public class LinkedList {
             ll2.addLast(i);
         }
         System.out.println(ll2.recSearch(3));
+
+        ll.reverse();
+        ll.printList();
+        System.out.println(ll.tail.data + " " + ll.head.data);
 
     }
 }
