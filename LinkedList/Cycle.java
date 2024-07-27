@@ -1,4 +1,4 @@
-package LinkedList;
+package Linkedlist;
 
 public class Cycle {
     static boolean isCycle(LinkedList list){

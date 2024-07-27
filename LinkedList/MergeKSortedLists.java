@@ -1,4 +1,4 @@
-package LinkedList;
+package Linkedlist;
 
 public class MergeKSortedLists {
     static Node merge(Node h1, Node h2){

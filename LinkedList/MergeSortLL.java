@@ -1,4 +1,4 @@
-package LinkedList;
+package Linkedlist;
 
 public class MergeSortLL {
     static Node middleNode(Node head){
