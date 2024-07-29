@@ -69,7 +69,24 @@ public class TreePreorder {
                     if(curr.right != null) queue.offer(curr.right);
                 }
             }
+        }
 
+        // O(n)
+        public int height(Node root){
+            if(root == null) return -1;
+            return 1 + Math.max(height(root.left), height(root.right));
+        }
+
+        // O(n)
+        public int countNodes(Node root){
+            if(root == null) return 0;
+            return countNodes(root.left) + countNodes(root.right) + 1;
+        }
+
+        // O(n)
+        public int sumOfNodes(Node root){
+            if(root == null) return 0;
+            return sumOfNodes(root.left) + sumOfNodes(root.right) + root.data;
         }
     }
     public static void main(String[] args) {
@@ -83,5 +100,8 @@ public class TreePreorder {
         btree.postOrder(root);
         System.out.println();
         btree.levelOrder(root);
+        System.out.println(btree.height(root));
+        System.out.println(btree.countNodes(root));
+        System.out.println(btree.sumOfNodes(root));
     }
 }
