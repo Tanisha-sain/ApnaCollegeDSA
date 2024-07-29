@@ -2,19 +2,19 @@ package Tree;
 import java.util.Queue;
 import java.util.LinkedList;
 
-public class TreeTraversal {
-    static class Node{
-        int data;
-        Node left;
-        Node right;
+class Node{
+    int data;
+    Node left;
+    Node right;
 
-        Node(int data){
-            this.data = data;
-            left = null;
-            right = null;
-        }
+    Node(int data){
+        this.data = data;
+        left = null;
+        right = null;
     }
-
+}
+public class TreeTraversal {
+    
     static class BinaryTree{
         static int index = -1;
         public Node buildTree(int[] nodes){
