@@ -2,7 +2,7 @@ package Tree;
 import java.util.Queue;
 import java.util.LinkedList;
 
-public class TreePreorder {
+public class TreeTraversal {
     static class Node{
         int data;
         Node left;
