@@ -72,6 +72,23 @@ public class LowestCommonAncestor {
 
         return dist1 + dist2;
     }
+
+    static int kthAncestor(Node root, int n, int k){
+        if(root == null) return -1;
+        if(root.data == n) return 0;
+        int leftDist = kthAncestor(root.left, n, k);
+        int rightDist = kthAncestor(root.right, n, k);
+
+        if(leftDist == -1 && rightDist == -1){
+            return -1;
+        }
+        int max = Math.max(leftDist, rightDist);
+        if(max+1 == k){
+            System.out.println(root.data);
+        }
+        return max+1;
+    }
+
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
@@ -89,6 +106,8 @@ public class LowestCommonAncestor {
         }
 
         System.out.println(minDist(root, 4, 5));
+
+        kthAncestor(root, 5, 2);
 
     }
 }
