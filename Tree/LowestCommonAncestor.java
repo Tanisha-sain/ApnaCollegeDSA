@@ -49,6 +49,29 @@ public class LowestCommonAncestor {
 
         return root;
     }
+
+    static int lcadist(Node lca, int n){
+        if(lca == null) return -1;
+        if(lca.data == n) return 0;
+
+        int leftDist = lcadist(lca.left, n);
+        int rightDist = lcadist(lca.right, n);
+
+        if(leftDist == -1 && rightDist == -1){
+            return -1;
+        }else if(leftDist == -1){
+            return rightDist + 1;
+        }else{
+            return leftDist + 1;
+        }
+    }
+    static int minDist(Node root, int n1, int n2){
+        Node lca = lca2(root, n1, n2);
+        int dist1 = lcadist(lca, n1);
+        int dist2 = lcadist(lca, n2);
+
+        return dist1 + dist2;
+    }
     public static void main(String[] args) {
         Node root = new Node(1);
         root.left = new Node(2);
@@ -64,6 +87,8 @@ public class LowestCommonAncestor {
         }else{
             System.out.println(commonAncestor.data);
         }
+
+        System.out.println(minDist(root, 4, 5));
 
     }
 }
