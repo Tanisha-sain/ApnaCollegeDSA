@@ -86,6 +86,17 @@ public class BST {
         return isValidBST(root.left, min, root.data) && isValidBST(root.right, root.data, max);
     }
 
+    static Node createMirror(Node root){
+        if(root == null) return null;
+        Node left = createMirror(root.left);
+        Node right = createMirror(root.right);
+
+        root.left = right;
+        root.right = left;
+
+        return root;
+    }
+
     public static void main(String[] args) {
         int[] arr = {5,1,3,4,2,7};
         Node root = buildBST(arr);
@@ -99,8 +110,12 @@ public class BST {
         System.out.println();
 
         printRootToLeafPaths(root, new ArrayList<>());
-        
-        root.left.left = new Node(6);
+
+        System.out.println(isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
+
+        root = createMirror(root);
+        btree.inOrder(root);
+        System.out.println();
         System.out.println(isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
     }
 }
