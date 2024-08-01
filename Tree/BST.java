@@ -1,5 +1,6 @@
 package Tree;
 import Tree.TreeTraversal.*;
+import java.util.*;
 public class BST {
     static BinaryTree btree = new BinaryTree();
     public static Node insert(Node root, int val){
@@ -65,15 +66,30 @@ public class BST {
             printInRange(root.left, l, h);
         }
     }
+
+    static void printRootToLeafPaths(Node root, ArrayList<Integer> list){
+        if(root == null) return;
+        list.add(root.data);
+        if(root.left == null && root.right == null){
+            System.out.println(list);
+            return;
+        }
+        printRootToLeafPaths(root.left, list);
+        printRootToLeafPaths(root.right, list);
+        list.remove(list.size()-1);
+    }
     public static void main(String[] args) {
         int[] arr = {5,1,3,4,2,7};
         Node root = buildBST(arr);
 
-        root = delete(root, 3);
+        // root = delete(root, 3);
         btree.inOrder(root);
         System.out.println();
         System.out.println(search(root, 3));
 
         printInRange(root,4, 8);
+        System.out.println();
+
+        printRootToLeafPaths(root, new ArrayList<>());
     }
 }
