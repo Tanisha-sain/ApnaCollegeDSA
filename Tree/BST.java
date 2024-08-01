@@ -52,6 +52,19 @@ public class BST {
         }
         return root;
     }
+
+    static void printInRange(Node root, int l, int h){
+        if(root == null) return;
+        if(root.data >= l && root.data <= h){
+            printInRange(root.left, l, h);
+            System.out.print(root.data + " ");
+            printInRange(root.right, l, h);
+        }else if(root.data < l){
+            printInRange(root.right, l, h);
+        }else{
+            printInRange(root.left, l, h);
+        }
+    }
     public static void main(String[] args) {
         int[] arr = {5,1,3,4,2,7};
         Node root = buildBST(arr);
@@ -60,5 +73,7 @@ public class BST {
         btree.inOrder(root);
         System.out.println();
         System.out.println(search(root, 3));
+
+        printInRange(root,4, 8);
     }
 }
