@@ -78,6 +78,14 @@ public class BST {
         printRootToLeafPaths(root.right, list);
         list.remove(list.size()-1);
     }
+
+    static boolean isValidBST(Node root, int min, int max){
+        if(root == null) return true;
+        if(root.data >= max || root.data <= min) return false;
+
+        return isValidBST(root.left, min, root.data) && isValidBST(root.right, root.data, max);
+    }
+
     public static void main(String[] args) {
         int[] arr = {5,1,3,4,2,7};
         Node root = buildBST(arr);
@@ -91,5 +99,8 @@ public class BST {
         System.out.println();
 
         printRootToLeafPaths(root, new ArrayList<>());
+        
+        root.left.left = new Node(6);
+        System.out.println(isValidBST(root, Integer.MIN_VALUE, Integer.MAX_VALUE));
     }
 }
